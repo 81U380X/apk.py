@@ -117,12 +117,9 @@ console.log = function(str) {
 
 ## Requirements
 
-- apktool
-- apksigner
-- unxz
-- zipalign
-- aapt
-- adb
+```shell
+$ pip install -r requirements.txt
+```
 
 ## Usage 
 ### SYNOPSIS

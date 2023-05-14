@@ -98,9 +98,13 @@ def wget(path: Path, url: str) -> None:
 
 
 def install_buildtools() -> None:
-    system = {"Windows": "win", "Linux": "linux"}.get(platform.system(), None)
+    system = {"Windows": "win", "Linux": "linux", "Darwin": "mac"}.get(platform.system(), None)
     if not system:
-        raise NotImplemented(f"Unsupported operating system: {platform.system()}")
+        print(f"[>] Unsupported operating system: {platform.system()}")
+        print("[>] Pls use another OS!")
+        print("[>] Bye!")
+        sys.exit(1)
+
     CMDLINE_TOOLS_DOWNLOAD_URL = f"https://dl.google.com/android/repository/commandlinetools-{system}-9123335_latest.zip"
     CMDLINE_TOOLS_ZIP = APK_SH_HOME / Path(CMDLINE_TOOLS_DOWNLOAD_URL).name
     CMDLINE_TOOLS_DIR = APK_SH_HOME / "cmdline-tools"
